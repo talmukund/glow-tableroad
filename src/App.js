@@ -106,7 +106,7 @@ class App extends Component {
     const options = {
       paginationSize: 6,
       pageStartIndex: 0,
-      hideSizePerPage: true, // Hide the sizePerPage dropdown always
+      hideSizePerPage: false, // Hide the sizePerPage dropdown always
       hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
       firstPageText: 'First',
       prePageText: 'Back',
