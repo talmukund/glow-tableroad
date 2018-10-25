@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
 import BootstrapTable from 'react-bootstrap-table-next';
+
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import './App.css';
+import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 
 class App extends Component {
   state = {
@@ -109,7 +111,7 @@ class App extends Component {
       hideSizePerPage: false, // Hide the sizePerPage dropdown always
       hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
       firstPageText: 'First',
-      prePageText: 'Back',
+      prePageText: 'Previous',
       nextPageText: 'Next',
       lastPageText: 'Last',
       nextPageTitle: 'First page',
@@ -130,29 +132,45 @@ class App extends Component {
 
     const columns = [{
       dataField: 'id',
-      text: 'ID'
+      text: 'ID',
+      sort: true,
+      filter: textFilter()
     }, {
       dataField: 'name',
-      text: 'Name'
+      text: 'Name',
+      sort: true,
+      filter: textFilter()
     }, {
       dataField: 'position',
-      text: 'Position'
+      text: 'Position',
+      sort: true,
+      filter: textFilter()
     }, {
       dataField: 'office',
-      text: 'Office'
+      text: 'Office',
+      sort: true,
+      filter: textFilter()
     }, {
       dataField: 'age',
-      text: 'Age'
+      text: 'Age',
+      sort: true,
+      filter: textFilter()
     }, {
       dataField: 'startdate',
-      text: 'Start Date'
+      text: 'Start Date',
+      sort: true,
+      filter: textFilter()
     }, {
       dataField: 'salary',
-      text: 'Salary'
+      text: 'Salary',
+      sort: true,
+      filter: textFilter()
     }];
     return (
       <div>
-        <BootstrapTable bootstrap4 keyField='id' data={this.state.table_data} columns={columns} pagination={paginationFactory(options)} />
+        <BootstrapTable bootstrap4 keyField='id' data={this.state.table_data} columns={columns} pagination={paginationFactory(options)} filter={ filterFactory()} striped
+          hover
+          condensed />
       </div>
     )
   }
